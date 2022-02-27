@@ -27,26 +27,40 @@ let string = `
 /* 加两个神秘的小球
 **/
 #div1::before {
-    background: #000;
+    background: #fff;
     width: 100px;
     height: 100px;
+    border-radius: 50%;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 50%; 
-    background: radial-gradient(circle, rgba(255,255,255,1) 18%, rgba(0,0,0,1) 18%);
+    background: radial-gradient(circle, rgba(0,0,0,1) 18%, rgba(255,255,255,1) 18%);
+    
 }
 #div1::after {
-    background: #fff;
+    background: #000;
     width: 100px;
     height: 100px;
+    border-radius: 50%;    
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,0,0,1) 18%, rgba(255,255,255,1) 18%);
+    background: radial-gradient(circle, rgba(255,255,255,1) 18%, rgba(0,0,0,1) 18%);
+}
+/* 接着让太极转动起来吧
+**/
+@keyframes spin {
+    0% {   
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {      
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+#div1 {
+    animation: spin 6s linear infinite;
 }
 `   
 let n = 0;
@@ -68,11 +82,13 @@ let step = () => {
         }
         html.innerHTML = string2;
         style.innerHTML = string.substring(0,n+1);
+        window.scrollTo(0,9999);
+        html.scrollTo(0,9999);
         n++;
         if(n < string.length){
             step();
         }
-    },20)
+    },0)
    
 }
 
