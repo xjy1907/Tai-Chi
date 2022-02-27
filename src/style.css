@@ -20,12 +20,12 @@
     background-color: lightgreen;
   }
   #html {
+    background-color: white;
     height: 50vh;
     overflow: auto;
     word-break: break-all;
   }
   #divWrapper {
-    border: 1px solid red;
     height: 50vh;
   }
   #div1 {
